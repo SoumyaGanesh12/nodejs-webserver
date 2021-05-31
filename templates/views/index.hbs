@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Weather</title>
+    <link rel="icon" href="/img/weather.png"/>
+    <link rel="stylesheet" href="/css/styles.css" />
+    
+</head>
+
+<body>
+
+    <div class="main-content">
+    {{>header}} <!-- To add a partial just say name of hbs file after prefix '>' -->
+    <!-- <h1> {{title}} </h1> -->
+    <!-- <p> Created by {{name}}</p> -->
+    <p> This is the index page </p>
+
+    <form>
+        <input placeholder="Location"/>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id='message-1'></p>
+    <p id='message-2'></p>
+
+    </div>
+
+    <!-- footer has to stick to the bottom and the remaining space is used by the body of html page-->
+    <!-- for this we use the concept of flex -->
+    <!-- in styles.css display is set as flex and flex-direction is set as column(top to bottom) which enables the flex (Default: row) -->
+    <!-- min-height : 100vh means viewport height to push the footer downwards but the extra space in browser has to be occupied by body to make footer stay at the bottom-->
+    <!-- for this, in main-content class flex-grow is set as 1 for body to occupy extra space as well -->
+
+    {{>footer}}
+
+    <script src="/js/app.js"> </script>
+</body>
+
+</html>
