@@ -6,6 +6,9 @@ const { response } = require('express')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
+// to adjust with heroku
+const port = process.env.PORT || 3000 // defaults to portnumber 3000
+
 const app = express()
 
 // Define paths for Express Config
@@ -160,8 +163,16 @@ app.get('*', (req, res) => {
 
 
 // to start the server
-app.listen(3000, () => {
-    console.log('Server is up and running!')
+// app.listen(3000, () => {
+//     console.log('Server is up and running!')
+// })
+
+// when working with heroku we cant hardcode a portnumber, so we have to get the port value that heroke uses to run the application
+// this is done with help of porcess.env.PORT which will give port number that heroku uses for this application
+// there is port variable up above
+
+app.listen(port, () => {
+    console.log('Server is up and running!', port)
 })
 
 // type in browser address bar -> localhost:3000

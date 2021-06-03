@@ -26,9 +26,6 @@ const messageTwo=document.querySelector('#message-2')
 
 //messageOne.textContent = 'Hello '
 
-
-
-
 weatherForm.addEventListener('submit',(e) => {
     e.preventDefault() // default action of page: refresh and reset the value, if this happens the user cannot see his own typed value when he click submit
     // we use this function to prevent the defaults
@@ -37,7 +34,9 @@ weatherForm.addEventListener('submit',(e) => {
     messageOne.textContent ='Loading...'
     messageTwo.textContent =''
     
-    const url = 'http://localhost:3000/weather?address=' + location
+    // const url = 'http://localhost:3000/weather?address=' + location
+    // changing it to match with heroku provided port number, so we cant hardcode it (it may or may not be 3000)
+    const url = '/weather?address=' + location
     fetch(url).then((response) => {
     response.json().then((data) => {
         if(data.error){
